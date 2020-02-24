@@ -2,8 +2,9 @@ job "telegraf" {
   datacenters = ["us-east-1"]
   type = "system"
 
+
   group "telegraf" {
-    task "telegraf" {
+    task "deployTelegrafDockerContainer" {
       driver = "docker"
 
       config {
@@ -19,7 +20,7 @@ job "telegraf" {
       }
 
       artifact {
-        source      = "./files/telegraf/telegraf.conf"
+        source      = "files/telegraf/telegraf.conf"
         destination = "/files/telegraf/telegraf.conf"
       }
 
