@@ -10,7 +10,7 @@ job "telegraf" {
       config {
         image = "telegraf:1.13.2"
         volumes = [
-          "/files/telegraf/telegraf.conf:/etc/telegraf/conf.d/telegraf.conf",
+          "/files/telegraf/telegraf.conf:/etc/telegraf/conf.d/telegraf.conf", //host:container and the artifact is for how this volume knows where to get this
         ]
 
 
@@ -20,7 +20,7 @@ job "telegraf" {
       }
 
       artifact {
-        source      = "files/telegraf/telegraf.conf"
+        source      = "files/telegraf/telegraf.conf" //this will need to be bitbucket path
         destination = "/files/telegraf/telegraf.conf"
       }
 
@@ -34,6 +34,9 @@ job "telegraf" {
           port "telegrafTCP" {}
         }
       }
+    }
+    task "" {
+
     }
   }
 }
