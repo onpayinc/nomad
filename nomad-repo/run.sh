@@ -15,3 +15,6 @@ ssh-keygen -F github.com
 if [[ $? != 0 ]]; then
     ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 fi
+
+
+ssh-agent $(ssh-add /nomad/nomad-repo/id_rsa; git clone git@bitbucket.org:onpay/nomad.git /nomad-repo)
