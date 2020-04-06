@@ -1,14 +1,16 @@
-job "nomad-repo2" {
+job "nomad-repository" {
   datacenters = ["us-east-1"]
   type = "system"
 
   group "all-servers" {
+
     task "authGitRepoLocally" {
       driver = "raw_exec"
       config {
         command = "/nomad/nomad-repo/run.sh"
       }
     }
+
     task "cloneGitRepo" {
       driver = "raw_exec"
 
