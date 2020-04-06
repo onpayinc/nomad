@@ -1,5 +1,5 @@
 job "telegraf" {
-  datacenters = ["us-east-1"]
+  datacenters = ["*"]
   type = "system"
 
 
