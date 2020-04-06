@@ -1,5 +1,5 @@
 job "nomad-repo2" {
-  datacenters = ["*"]
+  datacenters = ["us-east-1"]
   type = "system"
 
   group "all-servers" {
