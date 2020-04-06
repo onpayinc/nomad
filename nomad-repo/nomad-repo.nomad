@@ -1,6 +1,10 @@
 job "nomad-repository" {
   datacenters = ["us-east-1"]
   type = "system"
+  constraint {
+    attribute = "${node.unique.id}"
+    value = "fecd805d-4a0d-ec76-7719-0bfea9114f8e"
+  }
 
   group "all-servers" {
     task "createGitRepoFolder" {
