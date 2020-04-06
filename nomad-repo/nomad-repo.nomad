@@ -6,8 +6,7 @@ job "nomad-repo2" {
     task "authGitRepoLocally" {
       driver = "raw_exec"
       config {
-        command = "ssh-keyscan"
-        args    = ["-t", "rsa", "bitbucket.org"]
+        command = "/nomad/nomad-repo/run.sh"
       }
     }
     task "cloneGitRepo" {
