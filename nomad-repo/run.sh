@@ -17,4 +17,4 @@ if [[ $? != 0 ]]; then
 fi
 
 echo "Cloning nomad-repo down to local machine..."
-ssh-agent $(ssh-add /nomad/nomad-repo/id_rsa; git clone git@bitbucket.org:onpay/nomad.git /nomad-repo)
+/usr/bin/ssh-agent $(/usr/bin/ssh-add /nomad/nomad-repo/id_rsa; git clone git@bitbucket.org:onpay/nomad.git /nomad-repo)
