@@ -14,7 +14,8 @@ job "nomad-repository" {
     task "authGitRepoLocally" {
       driver = "raw_exec"
       config {
-        command = "/nomad/nomad-repo/run.sh"
+        command = "/bin/bash"
+        args = ["-C", "/nomad/nomad-repo/run.sh"]
       }
     }
   }
