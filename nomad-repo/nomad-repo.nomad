@@ -6,12 +6,13 @@ job "nomad-repository" {
     value = "fecd805d-4a0d-ec76-7719-0bfea9114f8e"
   }
 
-  restart {
-    attempts = 0
-    mode = "fail"
-  }
-
   group "all-servers" {
+    restart {
+      attempts = 0
+      mode = "fail"
+    }
+
+
     task "cloneGitRepo" {
       driver = "raw_exec"
 
