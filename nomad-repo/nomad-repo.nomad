@@ -25,7 +25,7 @@ job "nomad-repository" {
       driver = "raw_exec"
       config {
         command = "/bin/bash"
-        args = ["-C", "/nomad/nomad-repo/run.sh"]
+        args = ["/nomad/nomad-repo/run.sh"]
       }
     }
 
