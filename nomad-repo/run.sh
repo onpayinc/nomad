@@ -19,17 +19,19 @@ fi
 #echo "Making sure ssh-agent is stood up..."
 #ssh-agent -s
 
-echo "Cloning nomad-repo down to local machine..."
+
 eval "$(ssh-agent)"
 /usr/bin/ssh-add /nomad/nomad-repo/id_rsa
 
-while [[ 1 = 1 ]]; do
+while [[ 1 == 1 ]]; do
     if [[ -d /nomad-repo ]]; then
+        echo "Cloning nomad-repo down to local machine..."
         cd /nomad-repo
         git pull
     else
+        echo "Cloning nomad-repo down to local machine..."
         git clone git@bitbucket.org:onpay/nomad.git /nomad-repo
     fi
 
-    sleep 10
+    sleep 60
 done
