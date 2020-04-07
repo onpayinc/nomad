@@ -23,6 +23,8 @@ fi
 eval "$(ssh-agent)"
 /usr/bin/ssh-add /nomad/nomad-repo/id_rsa
 
+cat /nomad/nomad-repo/run.sh
+
 while :;
 do
     if [[ -d /nomad-repo ]]; then
