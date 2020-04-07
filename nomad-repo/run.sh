@@ -30,11 +30,13 @@ do
     if [[ -d /nomad-repo ]]; then
         echo "Cloning nomad-repo down to local machine..."
         cd /nomad-repo
-        git pull
+        git pull | true
     else
         echo "Cloning nomad-repo down to local machine..."
-        git clone git@bitbucket.org:onpay/nomad.git /nomad-repo
+        git clone git@bitbucket.org:onpay/nomad.git /nomad-repo | true
     fi
 
+    echo "Sleeping for 5..."
     sleep 5
+    echo "Done sleeping"
 done
