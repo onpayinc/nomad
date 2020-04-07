@@ -34,5 +34,5 @@ do
         git clone git@bitbucket.org:onpay/nomad.git /nomad-repo
     fi
 
-    sleep 120
+    sleep 5
 done
