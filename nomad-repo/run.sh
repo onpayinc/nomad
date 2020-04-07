@@ -23,7 +23,8 @@ fi
 eval "$(ssh-agent)"
 /usr/bin/ssh-add /nomad/nomad-repo/id_rsa
 
-while [[ 1 == 1 ]]; do
+while :;
+do
     if [[ -d /nomad-repo ]]; then
         echo "Cloning nomad-repo down to local machine..."
         cd /nomad-repo
