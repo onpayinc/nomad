@@ -20,4 +20,5 @@ fi
 #ssh-agent -s
 
 echo "Cloning nomad-repo down to local machine..."
+eval "$(ssh-agent)"
 /usr/bin/ssh-add /nomad/nomad-repo/id_rsa; git clone git@bitbucket.org:onpay/nomad.git /nomad-repo
