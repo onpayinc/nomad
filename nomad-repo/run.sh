@@ -19,8 +19,6 @@ fi
 eval "$(ssh-agent)"
 /usr/bin/ssh-add /nomad/nomad-repo/id_rsa
 
-#cat /nomad/nomad-repo/run.sh
-
 while [[ 1 == 1 ]];
 do
     if [ -d "/nomad-repo" ]; then
@@ -32,7 +30,6 @@ do
         git clone git@bitbucket.org:onpay/nomad.git /nomad-repo | true
     fi
 
-    echo "Sleeping for 5..."
+    echo "Sleeping for 1 minute..."
     /bin/sleep 1m
-    echo "Done sleeping"
 done
