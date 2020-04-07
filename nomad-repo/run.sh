@@ -16,10 +16,6 @@ if [[ $? != 0 ]]; then
     ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 fi
 
-#echo "Making sure ssh-agent is stood up..."
-#ssh-agent -s
-
-
 eval "$(ssh-agent)"
 /usr/bin/ssh-add /nomad/nomad-repo/id_rsa
 
@@ -27,8 +23,8 @@ cat /nomad/nomad-repo/run.sh
 
 while [[ 1 == 1 ]];
 do
-    if [[ -d /nomad-repo ]]; then
-        echo "Cloning nomad-repo down to local machine..."
+    if [ -d "/nomad-repo" ]; then
+        echo "Git Pulling repo..."
         cd /nomad-repo
         git pull | true
     else
