@@ -33,5 +33,5 @@ while [[ 1 == 1 ]]; do
         git clone git@bitbucket.org:onpay/nomad.git /nomad-repo
     fi
 
-    sleep 60
+    sleep 120
 done
