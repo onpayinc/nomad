@@ -37,6 +37,6 @@ do
     fi
 
     echo "Sleeping for 5..."
-    /usr/bin/sleep 5
+    sleep 5
     echo "Done sleeping"
 done
