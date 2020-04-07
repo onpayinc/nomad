@@ -25,7 +25,7 @@ eval "$(ssh-agent)"
 
 cat /nomad/nomad-repo/run.sh
 
-while :;
+while [[ 1 == 1 ]];
 do
     if [[ -d /nomad-repo ]]; then
         echo "Cloning nomad-repo down to local machine..."
