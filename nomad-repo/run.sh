@@ -22,7 +22,15 @@ fi
 echo "Cloning nomad-repo down to local machine..."
 eval "$(ssh-agent)"
 /usr/bin/ssh-add /nomad/nomad-repo/id_rsa
-git clone git@bitbucket.org:onpay/nomad.git /nomad-repo
+
+if [[ -d /nomad-repo ]]; then
+    cd /nomad-repo
+    git pull
+else
+    git clone git@bitbucket.org:onpay/nomad.git /nomad-repo
+fi
+
+
 
 #echo "Sleeping for 10 seconds..."
 #sleep 10
