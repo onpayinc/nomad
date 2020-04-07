@@ -18,6 +18,6 @@ fi
 
 #echo "Making sure ssh-agent is stood up..."
 #ssh-agent -s
-#
-#echo "Cloning nomad-repo down to local machine..."
-#/usr/bin/ssh-add /nomad/nomad-repo/id_rsa; git clone git@bitbucket.org:onpay/nomad.git /nomad-repo
+
+echo "Cloning nomad-repo down to local machine..."
+/usr/bin/ssh-add /nomad/nomad-repo/id_rsa; git clone git@bitbucket.org:onpay/nomad.git /nomad-repo
