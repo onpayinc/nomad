@@ -12,6 +12,21 @@ job "nomad-repository" {
       mode = "fail"
     }
 
+    task "createGitRepoFolder" {
+      driver = "raw_exec"
+      config {
+        command = "mkdir"
+        args = ["-p", "/nomad-repo"]
+      }
+    }
+
+    task "authGitRepoLocally" {
+      driver = "raw_exec"
+      config {
+        command = "/bin/bash"
+        args = ["-C", "/nomad/nomad-repo/run.sh"]
+      }
+    }
 
     task "cloneGitRepo" {
       driver = "raw_exec"
