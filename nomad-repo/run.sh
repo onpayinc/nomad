@@ -19,7 +19,7 @@ fi
 eval "$(ssh-agent)"
 /usr/bin/ssh-add /nomad/nomad-repo/id_rsa
 
-cat /nomad/nomad-repo/run.sh
+#cat /nomad/nomad-repo/run.sh
 
 while [[ 1 == 1 ]];
 do
