@@ -1,42 +1,47 @@
+# THIS IS NOT GOING TO WORK UNTIL THE REGISTRY NOMAD JOB
+# IS DONE SO IT CAN PULL FROM THE CORRECT IMAGE
+
 job "telegraf" {
   datacenters = ["us-east-1"]
   type = "system"
 
-
   group "telegraf" {
-    task "deployTelegrafDockerContainer" {
+    task "deployTelegrafMetricsDockerContainer" {
       driver = "docker"
 
       config {
-        image = "telegraf:1.13.2"
-        volumes = [
-          "/files/telegraf/telegraf.conf:/etc/telegraf/conf.d/telegraf.conf", //host:container and the artifact is for how this volume knows where to get this
-        ]
-
-
+        image = "telegraf:latest"
         port_map {
-          telegrafTCP = 8094
+          telegrafMetricsTCP = 8094
         }
       }
 
-      artifact {
-        source      = "files/telegraf/telegraf.conf" //this will need to be bitbucket path
-        destination = "/files/telegraf/telegraf.conf"
-      }
-
       service {
-        name = "telegraf"
-        port = "telegrafTCP"
+        name = "telegraf-metric"
+        port = "telegrafMetricsTCP"
       }
 
       resources {
         network {
-          port "telegrafTCP" {}
+          port "telegrafMetricsTCP" {}
         }
       }
     }
-    task "" {
 
+    task "deployTelegrafLoggerDockerContainer" {
+      driver = "docker"
+
+      config {
+        image = "telegraf:latest"
+      }
+
+      service {
+        name = "telegraf-logger"
+      }
     }
   }
 }
+
+
+#  image = "docker.onpay.dev:5000/telegraf:latest"
+#  image = "docker.onpay.dev:5000/telegraf/telegraf-logger:latest"
