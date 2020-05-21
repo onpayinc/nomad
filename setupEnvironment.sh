@@ -6,6 +6,8 @@
 
 
 # setup job to pull things from git on ALL VM's
+# setup docker registry (x2)
+# setup docker registry cache (per registry)
 # setup elasticsearch
 # setup logging-mongo
 # setup graylog

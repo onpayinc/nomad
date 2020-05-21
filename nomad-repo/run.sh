@@ -4,7 +4,6 @@ echo "Ensuring known_hosts exists..."
 touch ~/.ssh/known_hosts
 
 echo "Scanning for bitbucket.org key...."
-
 ssh-keygen -F bitbucket.org
 if [[ $? != 0 ]]; then
     ssh-keyscan -t rsa bitbucket.org >> ~/.ssh/known_hosts
@@ -21,7 +20,7 @@ eval "$(ssh-agent)"
 
 while [[ 1 == 1 ]];
 do
-    if [ -d "/nomad-repo" ]; then
+    if [[ -d "/nomad-repo" ]]; then
         echo "Git Pulling repo..."
         cd /nomad-repo
         git pull | true
